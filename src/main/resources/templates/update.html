@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Atualização cadastro</title>
+</head>
+<body>
+
+	<h1>Atualize seu cadastro</h1>
+	
+	<div class="table">
+	
+		<form action="/cadastro/add" th:action="@{'/update/'+${form.id}}" th:object="${form}" method="post">
+
+			<input type="number" th:field="*{id}" readonly="readonly"> 
+			<input name="email" th:field="*{email}" placeholder="E-mail"> 
+			<input name="nome" th:field="*{nome}" placeholder="Nome"> 
+			<input name="empresa" th:field="*{empresa}" placeholder="Empresa">
+
+			<button type = "submit">Atualizar</button>
+
+		</form>
+		
+	</div>
+	
+	<div class="cttgroup">
+		<a href="/index">Voltar</a>
+	</div>
+	
+</body>
+</html>

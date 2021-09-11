@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Formulário de Cadastros</title>
+</head>
+<body>
+
+	<h1>Cadastros Realizados</h1>
+	
+	<div class="table">
+		<table border="1">
+		
+			<thead>
+				<tr>
+					<td>Empresa</td>
+					<td>E-mail</td>
+					<td>Nome</td>
+					<td>Opções</td>
+				</tr>
+			</thead>
+			
+			<tbody>
+			
+				<tr th:each="form : ${form}">
+					<td th:text="${form.empresa}"></td>
+					<td th:text="${form.email}"></td>
+					<td th:text="${form.nome}"></td>
+
+					<td>
+						<a th:href="@{'/update/'+${form.id}}">Update</a> 
+						<a th:href="@{'/delete/'+${form.id}}">Delete</a>
+					</td>
+					
+			</tbody>
+			
+		</table>
+	</div>
+		
+	<a href="/index">Voltar</a>
+
+</body>
+</html>
